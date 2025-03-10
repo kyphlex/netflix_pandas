@@ -64,3 +64,39 @@ Printed my result with string formatting and even gave a table showing the hiera
 
 ![image](https://github.com/user-attachments/assets/1bf7b95b-1515-41ae-bf34-56b43e667f1f)
 
+
+## Highest Rated Movie
+So we're almost done. What is the highest rated movie? Now, there are two ratings, one is based on TMDB and another on IMDB. I could bring out the values seperately, but let's be honest, where's the fun in that? So let's find the average rating, that is, the mean of TMDB and IMDB.
+Please note that I am a complete beginner in the AI and ML space and yes, I spent ages on this one. Ages I tell you!! But the goodnews is: I did it :grin:. So let's see how an absolute beginner like myself managed to do it. Pros, please, hold the critics.
+You see, I needed to create a DataFrame containing the necessary columns, that is, 'type=MOVIE', 'imdb_score' and 'tmdb_score' and find the mean across each rows and get the highest one. This time I didn't use the 'net_joined' variable that joined the datasets together since the columns I'm focusing on is only found in 'titles.csv'. Why shall I stress myself?🥲
+Le sigh. I stressed myself. I filtered the dataset to get only the records with 'MOVIE', storing the result as 'movies_only'. Lol 😆, obvious choice. The dataset still had other records in it, so I decided to set the index of the dataset to the 'title' column, that way I see all the info based on title, saving this as 'movies'. Makes sense eh?
+Finally it was time to cook. Indexed the 'movies' dataframe to ['tmdb_scores', 'imdb_scores'] to bring out the set shouwing only 'tmdb_scores' and 'imdb_scores' records, slapped in the .fillna(0) method which changed all the 'NaN' results into 0. Looking nice. Added the .mean(axis=1) to calculate the mean horizontally or row by row, pick your term, and then sealed the deal with the .sort_values(ascending=False) to make it starting from the highest result. 
+Coding just hits the right spot sometimes. Dropped the sweetest f-string known to man, and there you have the result looking so divine....
+### Code:
+
+![image](https://github.com/user-attachments/assets/12807c2d-7682-4943-93dd-6d8d011cc729)
+
+### Output:
+
+![image](https://github.com/user-attachments/assets/2b29cd87-dab5-430a-b33d-01a9547f8652)
+
+Subarashii 😁
+
+
+## Final Boss
+The final question was all about knowing who runs the Netflix game. Who is the most popular actor (highest 'tmdb_popularity')? I've slayed tougher questions, this question wouldn't know what hit it. And it certainly did not.
+Okay, okay, let me confess, I got tangled up a bit. You see, I tried creating a seperate dataset, one that the index was set based on the actors name. Turns out that the tmdb popularity of the actors based on this was 0. Yes, 0. Why? Well, the answer is simple. Each actors ID corresponds to the movie the actor was casted in and the tmdb populartity ratings is based on the movie, not the actor. I know, I know. It's supposed to be obvious, but I'm a beginner remember 🥲.
+It was time to lock in. I already had a dataset that had only actors in the records. Filtered it by indexing based on 'name' and 'tmdb_popularity'. Turns out some actorrs had a populartity of 'NaN', I don't know how, but it's there. Slapped .fillna(0) in, you know what it does already, and dropped the efficient .sort_values(ascending=False).
+The question asked for the most popular actor, but nah, the result dropped a full squad. Six actors, which may include actresses were tied for the most popular actor spot with a rating of 2274.044 points or whatever the metric of popularity is. That's crazy!! They starred in a movie called 'Incantation', so go check it out. To finetune to result, I noticed that some actors appeared twice, sometimes with terrible ratings. I tried using the unique() method but got an Attribute error. Turns out .unique() only works for Series. Found the .drop_duplicates() method and used the argument 'subset='name'' to filter out based on name, dropping their worst and leaving their best.
+### Code:
+
+![image](https://github.com/user-attachments/assets/47bebc16-0140-4b97-9f85-d51914ed9e70)
+
+### Output:
+
+![image](https://github.com/user-attachments/assets/5afffbd0-f4fd-4270-8362-252fb33381e7)
+
+
+## Conclusion
+Well, that concludes my Pandas project. I'd be dropping more soon. For now, I'd be working on an app with my classmates on the 3mtt internship program. Catch me on LinkedIn (https://www.linkedin.com/in/ayineun-akpata-a55735331)
+Sayōnara. See you soon....
