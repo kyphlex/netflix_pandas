@@ -98,5 +98,5 @@ The question asked for the most popular actor, but nah, the result dropped a ful
 
 
 ## Conclusion
-Well, that concludes my Pandas project. I'd be dropping more soon. For now, I'd be working on an app with my classmates on the 3mtt internship program. Catch me on LinkedIn (https://www.linkedin.com/in/ayineun-akpata-a55735331)
+Well, that concludes my Pandas project. I'd be dropping more soon. For now, I'd be working on an app with my classmates on the 3mtt internship program. Catch me on LinkedIn (https://www.linkedin.com/in/ayineun-akpata)
 Sayōnara. See you soon....
